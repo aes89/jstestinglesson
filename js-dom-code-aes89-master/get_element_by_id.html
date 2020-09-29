@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .myDiv{
+            display: flex;
+            align-items: center;
+            background-color: blanchedalmond;
+            border: solid 2px darkcyan;
+        }
+    </style>
+</head>
+<body>
+    <!-- getElementById, getElementsByClassName, and getElementsByTagName -->
+    
+    <div class="myDiv">
+        <p id="myP">FlexTrack days are : </p>
+        <ul>
+            <li>Monday</li>
+            <li>Tuesday</li>
+            <li>Wednesday</li>
+        </ul>       
+    </div> 
+    <script>
+    //   get element by id
+      let p = document.getElementById("myP")
+      console.log(p)
+
+    //   get element by class name
+    let div = document.getElementsByClassName("myDiv")[0]
+    console.log(div) // should return a HTML element of divs?
+
+// querySelectorAll and getElementsByTagName differences
+    let qSAll = document.querySelectorAll("li")
+    let getElByTgNm = document.getElementsByTagName("li") // two ways to access elements using tag name
+        console.log("Before adding new elements")    
+        console.log(qSAll) //static list, does not update as things are added
+        console.log(getElByTgNm) // always give "live" HTML collection, new elements added as they are created
+        // change p text, add new element to above lists
+        let pFT = document.querySelector("p") //will always get the first p
+        pFT.innerHTML = "Fast Track Days Are:" //naughty, don't do this, luckily p has no child elements
+        let newLi = document.createElement("li")
+        newLi.textContent = "Thursday and Friday"
+        document.querySelector("ul").appendChild(newLi) //append to unordered list, not p or body
+    
+        console.log("After adding new elements")    
+        console.log(qSAll) //static list, does not update as things are added
+        console.log(getElByTgNm) // always give "live" HTML collection, new elements added as they are created
+
+        let arr = Array.from(getElByTgNm)
+        console.log(Array.isArray(arr)? true : false)
+
+
+    </script>   
+</body>
+</html>

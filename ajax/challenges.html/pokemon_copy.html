@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <div class="pokemonImage">
+        <img src="" alt="The image or sprite of the Pokemon you encountered!"/>
+    </div>
+    <div class="pokemonName"></div>
+    <div class="pokemonType1"></div>
+    <div class="pokemonType2"></div>
+
+    <button onclick="pokemon()">Encounter a Pokemon!</button>
+
+    <script>
+        function getRandomNumberForPokeAPI(){
+            // The "808" is just a safe maximum for how many Pokemon are currently in the API.
+            // When they add more Pokemon, that number should go up.
+            // Some newer Pokemon (numbers 808 and above) might be missing some data - 
+            // if that's the case, just change this number back to 808 instead of 894.
+            let suitableNumber = Math.floor(Math.random() * 894);
+            return suitableNumber;
+            
+            // You would then place this number in the PokeAPI url as per the API docs,
+            // using trusty ol' string interpolation.
+            // Like so:
+            // https://pokeapi.co/api/v2/pokemon/${getRandomNumberForPokeAPI()}
+        }
+
+        // Write your own JS after this line --------------------------------------
+
+        let image = document.querySelector("img");
+        let name = document.querySelector('.pokemonName');
+        let type1 = document.querySelector('.pokemonType1');
+        let type2 = document.querySelector('.pokemonType2');
+        let types = [type1, type2]
+        
+        let pokemon = () => {
+          fetch(`https://pokeapi.co/api/v2/pokemon/${getRandomNumberForPokeAPI()}`)
+            .then(response => response.json())
+            .then((result) => {
+              console.log(result);
+              image.src = result.sprites.front_default;
+              name.textContent = result.name;
+
+              types.forEach(thing => thing.innerHTML = "");
+
+              for(let i = 0; i < result.types.length; i++){
+                types[i].textContent = result.types[i].type.name
+              }
+            })
+        }
+
+
+    </script>
+</body>
+</html>x

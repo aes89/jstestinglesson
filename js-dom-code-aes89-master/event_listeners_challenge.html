@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table id="Bootcamp">
+        <tr><td id="rowData">Ruby-On-Rails</td></tr>
+    </table>
+    <script>
+        // Function to change the content of the table row
+        // what type of a function is changeCourse ? 
+        function changeCourse() {
+        /*Implement a function which 
+        1. Get the table data element 
+        2. Checks if the content is "Ruby-On-Rails" and if it is then changes it to "Mongo-Express-Node-React".
+        3. Basically toggles between the  strings upon "click".
+        4. Hint : You can use firstChild.nodeValue for the table row data. firstChild returns the first child node as an element node, a text node or a comment node (depending on which one's first)
+        https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces*/
+           
+        }              
+        /*Add event listener to table which will deliver the "click" event to the callback function changeCourse */
+        
+        function changeCourse() {
+            let firstChild = document.getElementById('rowData').firstChild;
+            if(firstChild.nodeValue === 'Ruby-On-Rails') {
+            firstChild.nodeValue = 'Mongo-Express-Node-React';
+            } else {
+            firstChild.nodeValue = 'Ruby-On-Rails';
+        }
+        // can use event.target ??
+}
+
+
+    </script>
+</body>
+</html>

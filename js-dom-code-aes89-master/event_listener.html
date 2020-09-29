@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<!-- 
+1. Syntax: target.addEventListener(type, listener [, options])
+2. Resources for understanding the event object : https://developer.mozilla.org/en-US/docs/Web/API/Event
+3. Event Object passed to the event handler
+4. Event.target (the object that was triggered) , event.type (mouse click, form submit, refresh, text select etc)
+5. We will discuss about event.preventDefault() and event.stopPropagation() -->
+
+
+
+<!-- Event listener - interface. 
+    Event object: data related to the event 
+    handleEvent() function that does something when the event happens-->
+<body>
+  <button id="btn">Click here!</button>
+  <script>
+      const btn = document.getElementById("btn") // line 15
+      // Syntax : targetElement.addEventListener(type, function(event)/listener, [options]) options not covered right now 
+      btn.addEventListener("click", (event) => {alert("Element Clicked through function")})
+ //event is an object, has defined properties
+    //   https://www.w3schools.com/jsref/dom_obj_event.asp
+    // see resources for list of properties on objects
+
+
+    // passing an object click, {}
+    btn.addEventListener("click", {
+        handleEvent: function(event){
+            alert("Element Clicked through function")
+        }
+    })
+
+    let buttonElement = document.getElementById('btn')
+
+    buttonElement.addEventListener('click', {
+      handleEvent: function (event) {
+        alert('Element clicked through handleEvent property!')
+      }
+    })
+
+    // clicking gets the same alert but then ?calls a function
+  </script>
+  
+</body>
+</html>
+
+<!-- Can one target element have more than one event handlers ? YES 
+For example, a webpage with an advertising-module and statistics-module both monitoring video-watching -->

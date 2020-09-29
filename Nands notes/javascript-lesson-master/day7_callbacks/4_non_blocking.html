@@ -1,0 +1,58 @@
+callb<!DOCTYPE html>
+<html>
+
+<head>
+    <title>JOKE NON BLOCKING</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous">
+        </script>
+</head>
+
+<body>
+    <button id="button">Get Jokes</button>
+    <button id="alert">Say Hello after 5 sec</button>
+    <p id="joke"></p>
+    <h1 id="heading"></h1>
+    <script>
+        function compileJokes(num, callback, arr = []) {
+            let url = "https://icanhazdadjoke.com/";
+            $.getJSON(url, (data) => {
+                arr.push(data.joke);
+                if (num === arr.length) {
+                    return callback(arr);
+                }
+                return compileJokes(num, callback, arr);  // recursive call, untill the number of calls completed
+            });
+        }
+
+        // basically we want 5 jokes to be printed
+        // group calling those jokes to a separte func and call it recursively
+        // and pass the 5 joke to be printed as a callback to it
+        document.querySelector("#button").addEventListener("click", () => {
+            document.getElementById("joke").innerHTML = "LOADING"
+            // istead of having a callback withing a callback, define a functiona nd specifiy thr numbe of callbacks and the callback func
+            compileJokes(5, (data) => {
+                document.getElementById("joke").innerHTML = data
+                // console.log(data);
+            });
+        });
+
+        // Hello after 5 seconds
+        function wait(ms) {
+            let start = Date.now()
+            now = start
+            while (now - start < ms) {
+                now = Date.now()
+            }
+        }
+
+        document.getElementById("alert").addEventListener("click", () => {
+            setTimeout(() => {
+                alert("Ran non blocking code!")
+            }, 5000)
+        })
+
+    </script>
+</body>
+
+</html>

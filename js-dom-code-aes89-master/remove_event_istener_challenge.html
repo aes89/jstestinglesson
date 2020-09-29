@@ -1,0 +1,69 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Remove Event Listener Example</title>
+        <style>
+            div{
+                display: flex;
+                justify-content: center;
+                padding: 10px;
+                margin: 10px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div>
+            <div><button id="startToggle">START TOGGLE</button></div>
+            <div><button id="stopToggle">STOP TOGGLE</button></div>
+        </div>  
+    <script>
+        const body = document.querySelector('body')
+        const button1 = document.getElementById('startToggle')
+        const button2 = document.getElementById('stopToggle')
+
+        // HINT : use this toggle flag to set the value to false / true as you toggle.
+        let toggle = false
+        
+        function toggleBgColour() {
+        /*
+        1. Write code for this function which toggles between the background colours of white and pink for the body of the HTML page when Button 1 is clicked.
+        YOUR CODE HERE*/
+        if (toggle) {
+                body.style.backgroundColor = 'white'
+            } else {
+                body.style.backgroundColor = 'lightpink'
+            }
+            
+            toggle = !toggle
+        }
+        /*
+        2. Next, add an event listener for event type "click" on Button 1 to call toggleBgColour()
+        YOUR CODE HERE*/
+            
+        button1.addEventListener('click',
+        toggleBgColour
+        )
+        /*
+        3. Further, add an event listener for event type "click" on Button 2 whose event handler actually end up removing the event listener on Button 1
+        YOUR CODE HERE*/
+            button2.addEventListener('click', function () {
+            button1.removeEventListener('click',
+            toggleBgColour
+            )
+        })
+    
+    </script>
+    </body>
+    </html>
+
+
+
+        
+        
+
+    
+

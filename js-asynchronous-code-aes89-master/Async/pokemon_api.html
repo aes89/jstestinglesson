@@ -1,0 +1,35 @@
+<html>
+
+<head>
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <button id="button">Get Pokemon</button>
+  <script>
+    
+    function compilePokemon(num, callback, arr = []) {
+      let randomNumber = Math.floor(Math.random() * 100 + 1)
+      let url = `https://pokeapi.co/api/v2/pokemon/${randomNumber}`;
+      $.getJSON(url, (Pokemon) => {
+        console.log(Pokemon.name)
+        arr.push(Pokemon.name);
+        if (num === arr.length) {
+          return callback(arr);
+        }
+        return compilePokemon(num, callback, arr);
+      });
+    }
+
+    function callback(data) {
+      console.log(data);
+    }
+
+    document.querySelector("#button").addEventListener("click", () => {
+      compilePokemon(5, callback);
+    });
+  </script>
+</body>
+
+</html>

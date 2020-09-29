@@ -1,0 +1,97 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head> -->
+<!-- <body> -->
+    <!-- Document, Node, Element, NodeList -->
+    <!-- <script> -->
+            <!-- // window.onLoad() = function(){     //Shelby says use onLoad, not onLoad()
+            //     let heading = document.createElement("h1")
+            //     let headingContent = document.createTextNode("Fun Times Ahead")
+
+            //     //append elelemnts
+            //     heading.appendChild(headingContent)
+            //     document.body.appendChild(heading) //append is attach to another element, stick it on the end. text node is the child element
+            // } -->
+    <!-- </script>   -->
+<!-- </body> -->
+<!-- </html> -->
+
+    
+    
+        <!-- DOM is an API which allows languages to manipulate/access items in your html file. -->
+        <!-- DOM manipulation -  also DJANGO/python, XML -->
+
+        <!-- document: represents any web page that gets loaded -->
+        <!-- window.onLoad() function - safe to put things in because DOM has been created. DOM needs to be ready for manipulation
+         script tag always just before closing body tag-->
+
+         
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Document, Node, Element, NodeList -->
+    <script>
+            let heading = document.createElement("h1")
+            let headingContent = document.createTextNode("Fun Times Ahead")               
+        // append elements 
+        heading.appendChild(headingContent)
+        document.body.appendChild(heading)
+        console.log(heading.childNodes)
+
+        // to remove a child
+        heading.removeChild(headingContent)
+        //must first create a node and then append it. Add it again but in one line.
+        heading.appendChild(document.createTextNode("Fun Times Ahead"))
+        // inner HTML does: add HTML to the child. Can add a chunk of HTML code, can override entire content. eg:
+        // .innerHTML =
+        //     `<li>Name: ${fullName}</li>
+        //     <li>Email: ${email}</li>
+        //     <li>Age: ${age}</li>`;
+        heading.innerHTML = "ALL the fun is gone"
+        // H1 is parent,only showing "all the fun is gone" now. Does 3 things: removes all the children of that parent element, creates a new child and appends the new child to the parent.
+        // Latchy says prone to script injection. Varsha says saves lots of time, but best to avoid.
+        
+        
+        heading.textContent = "All the fun is gone !" //to create a string
+        console.log(heading.childNodes)
+
+        //add a p element "with JS" as text
+        let p1 = document.createElement("p") 
+        p1.textContent = "With JS"
+        let p2 = document.createElement("p") 
+        p2.textContent = "With JS2, why Ruby? Don't confuse me"
+// create div element
+        let div = document.createElement("div")
+        // let div1 = document.createElement("div") creates <div> and </div>
+
+        // do they have an identity?  yes?
+        div.appendChild(p1)
+        div.appendChild(p2)
+// still not coming up, div also needs to be appended to something
+        document.body.append(div) // now the JS strings display
+
+// nodelist - another data type. querySelector and querySelectorAll. document.querySeletor returns the first element it matches it?
+        let nodeList = document.querySelector("p")
+        console.log(nodeList)
+
+        let nodeListOfPs = document.querySelectorAll("p")
+        console.log(nodeListOfPs) // -> NodeList [ p, p]. NOT the same as a standard JS array. Can convert into an array:
+        let arrayOfPs = Array.from(nodeListOfPs)
+        console.log(arrayOfPs) //--> Array [ p, p ]
+    </script>  
+</body>
+</html>
+
+    <!-- onLoad doesn't work in ed. Node vs element, element is more specific on type. Parent node/element is not very different, but element is a specific type of node. -->
+    
+        

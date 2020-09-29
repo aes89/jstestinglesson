@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch</title>
+</head>
+<body>
+    <button id="button">GET user</button>
+    <script>
+        let getUserName = () => {
+            fetch("https://randomuser.me/api/") //promise based response so need .then/.cath
+            .then(response => response.json()) // convert to JSON which returns a promise. fetch API (docs), have a look at response section
+            .then(result => console.log(data.results[0].name.first)) //returns whole info, just want the namechain them, result comes from previous call
+            
+            .catch(err => console.log(err)) //if it has an arrow it's an "arrow function". Still an Ajax (async) request
+        }
+        document.getElementById("button").addEventListener("click", getUserName)
+    </script>
+</body>
+</html>
+
+<!-- This specific stuff is required for the afternoon challenge if you use fetch for it -- chaining thens & using response.data()!! -->
+
+<!-- IE  doesn't work, old firefox doesnt. Use XHR. -->

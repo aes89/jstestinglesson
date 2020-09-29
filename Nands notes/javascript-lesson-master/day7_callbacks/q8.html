@@ -1,0 +1,33 @@
+<!-- A setTimeout being interrupted by events due to the timeout callback being put on the evnt loop -->
+<!-- put the callback on event loop, so that a long running function in js can be interrupted by events -->
+<html>
+
+<head></head>
+
+<body>
+    <script>
+
+        function callback() {
+            console.log("TIMEOUT : executed after 3 seconds");
+        }
+
+        function callSetTimeout() {
+            var ms = 3000 + new Date().getTime();
+            while (new Date() < ms) {
+
+            }
+            setTimeout(callback, 0);
+        }
+        callSetTimeout();
+
+        function clickHandler() {
+            console.log("Click event registered");
+        }
+
+        document.addEventListener('click', clickHandler);
+
+
+    </script>
+</body>
+
+</html>

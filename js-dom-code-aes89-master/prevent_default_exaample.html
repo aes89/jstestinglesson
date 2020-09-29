@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Prevent Default Example</title>
+</head>
+
+<body>
+	
+	<h1 id="ca", style="color:lightsteelblue"> Coder Academy</h1>
+	<p>FlexTrack</p>
+	<div>
+		<ul>
+			<li>Sydney</li>
+			<li>Melbourne</li>
+			<li>Brisbane</li>
+		</ul>
+	</div>
+	<form id="page-form">
+		<input type="text" />
+		<input type="submit" value="Submit" />
+	</form>
+	<script>
+		const form = document.getElementById("page-form")
+		const ca = document.getElementById("ca")
+		
+		function handleSubmit(event) {
+			/* Write the code to:
+			1. Accept the form input which should be a certain colour like "Red" or "Blue"
+			2. Change the colour of Coder Academy to what the form input is.
+			HINT : 
+			Use the following link to refer to accessing the form input elements
+			https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/elements
+			
+			3. Observe what happens when the code runs and see if you are able to retain the change in the colour. If not then use prevent default to retain the colour change.
+			*/
+			// YOUR CODE HERE
+			event.preventDefault()
+			const colour = form.elements[0].value
+			ca.style.color = colour
+			form.elements[0].value = null
+		}
+		// Event Listener has been given for you.		
+		form.addEventListener("submit", handleSubmit)
+	</script>
+</body>
+
+</html>

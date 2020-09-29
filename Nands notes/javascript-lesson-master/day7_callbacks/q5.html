@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        setTimeout(callback, 3000);
+
+        function callback(){
+            console.log("3 sec timer completed")
+        }
+
+        function clickHandler(){
+            console.log("click event registered");
+        }
+
+        document.addEventListener('click', clickHandler)
+    </script>
+</body>
+</html>

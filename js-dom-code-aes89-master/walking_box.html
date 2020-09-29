@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transition: all 0.5s
+            position: absolute;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box" class=""></div>
+    
+    <button onClick="moveRight()">Move Right</button>
+    <button onClick="moveLeft()">Move Left</button>
+    <button onClick="moveUp()">Move Up</button>
+    <button onClick="moveDown()">Move Down</button>
+
+    <script>
+        let moveAmount = 50;
+        let currentPositionX = 0;
+        let currentPositionY = 0;
+
+        function moveLeft(){
+            let currentPositionX = document.getElementById("box").getBoundingClientRect().left - moveAmount;
+            document.getElementById("box").style.transform = `translate(${currentPositionA}%, ${currentPositionY}%)`;
+        }
+
+        function moveRight(){
+            let currentPositionX = document.getElementById("box").getBoundingClientRect().left + moveAmount;
+            document.getElementById("box").style.transform = `translate(${currentPositionB}%, ${currentPositionY}%)`;
+        }
+
+        function moveUp(){
+            let currentPositionY = document.getElementById("box").getBoundingClientRect().top - moveAmount;
+            document.getElementById("box").style.transform = `translate(${currentPositionX}%, ${currentPositionA}%)`;
+        }
+
+        function moveDown(){
+            let currentPositionY = document.getElementById("box").getBoundingClientRect().top + moveAmount;
+            document.getElementById("box").style.transform = `translate(${currentPositionX}%, ${currentPositionB}%)`;
+        }
+
+    </script>
+</body>
+</html>

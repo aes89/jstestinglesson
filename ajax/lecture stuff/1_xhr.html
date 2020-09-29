@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XHR</title>
+</head>
+<body>
+    <button id="buton"> Get user name</button>
+    
+
+    <script>
+        let getUserName = () => {
+            // make a xhr object
+            let request = new XMLHttpRequest()
+            // need to initialise request
+            request.open(
+                "GET", // type of request
+                "https://randomuser.me/api/", //URL
+                true //
+            )
+            //send the request
+            request.send()
+            //handle to response
+            request.onload = (response) => { //not "on success"
+            const parsedResults =  JSON.parse(request.response)
+            console.log(parsedResults.results[0].name.first) //response.map(x => x.firstname) to not hard code a number
+            }
+            //what to do with error
+            request.onerror =(err) =>  console.log(err)
+        }
+        //call the function
+        document.getElementById("button").addEventListener("click", getUserName) //callback function - no parenthesis needed otherwise invoked immediately
+    </script>
+
+</body>
+</html>
+
+<!-- too much code, look at 2_fetch.html -->

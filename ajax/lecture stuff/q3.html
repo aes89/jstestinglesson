@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>COVID</title>
+</head>
+<body>
+    <button id="button">Covid Summary</button>
+    <script src="q3.js"></script>
+</body>
+</html>
+
+get request to the covid API, data returned as a promise.
+gets specific info from response (global?)
+puts the result into a list that has been created with total deaths, new deaths etc as one bullet point (need to map for each point to go on a li)
+appends each bullet point and unordered list to the body
+can manage error if there is one
+clicking the button makes the get request via event listener

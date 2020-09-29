@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Fun Bite</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%
+        }
+
+        div {
+            border: 2px solid darkcyan;
+            background-color: blanchedalmond;
+            margin: 1px;
+            padding: 1px;
+            height: 100px;
+            width: 100px
+        }
+    </style>
+  </head>
+  <body>  
+    <script>
+        /*
+        Challenge:
+        When any div is clicked at anytime, it should randomly keep changing its color.
+        (Please ignore the design aspect of this challenge and focus on the nodelist iteration and the event handling part of it)
+
+        How do you do that ? 
+            a.  The body of the HTML page has been populated with 66 divs spaced equally. Write the code to select all the divs into a nodeList. 
+            HINT : The styling above helps you comes up with a neat layout for equally spaced divs
+            b. Write a function, "random()" that generates a random number.(of course where the random number generated is less than 256)
+            c. Write a function "bgChange()" that generates a RGB combination of numbers by calling the above function "random"
+			For instance, if bgChange function calls random function 3 times, we will get a color combination RGB within 255 , 255, 255.
+            d. Once these are ready, iterate over the nodelist of divs using "for of"/ "forEach"/ a simple "for" loop and add an event listener to each of the div elements where the event handler changes the colour of the div randomly with each click event by calling bgChange.
+            e. Once the "click" event gets successfully handled, use the different events in the following reference document to replace the "click" event and explore ! (mostly the mouse/ key press events)
+            https://developer.mozilla.org/en-US/docs/Web/Events           
+        */
+
+        // YOUR CODE HERE
+
+       
+    </script>
+  </body>
+</html>

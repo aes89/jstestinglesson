@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="button">Click Me</button>
+    <!-- DOM: -->
+    <script>
+        document.querySelector("#button").addEventListener("click",()=>{
+            console.log("button clicked")
+        })
+    </script>
+</body>
+</html>
+
+<!-- increments when button clocked -->
+
+
+<!-- altered: -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<body>
+    <button id="button">Click Me</button>
+    <!-- DOM: -->
+    <script>
+        document.querySelector("#button").addEventListener("click",()=>{
+            // console.log("button clicked")
+            // api call to get some jokes
+
+            $.getJSON("https://icanhazdadjoke.com/",(joke)=>{
+                console.log(joke)
+            })
+
+        })
+        
+        // api call to get some jokes
+    </script>
+</body>
+</html>
+
+<!-- whenever button clicked, call callback function, makes api call to get a joke and other info and display in ?terminal -->
+<!-- modify above to just get the joke part to display to ?terminal. -->
+$.getJSON("https://icanhazdadjoke.com/",(data)=>{
+    console.log(data.joke)
+})
+
+<!-- more jokes -->
+<!-- // api call to get some jokes -->
+<!-- pyramid of doom, callback hell, works but is not good practise -->
+<!-- // best practice : Promise -->
+$.getJSON("https://icanhazdadjoke.com/",(joke1)=>{
+    // console.log(data.joke)
+      $.getJSON("https://icanhazdadjoke.com/", (joke2) => {
+         $.getJSON("https://icanhazdadjoke.com/", (joke3) => {
+              $.getJSON("https://icanhazdadjoke.com/", (joke4) => {
+                   $.getJSON("https://icanhazdadjoke.com/", (jokj5) => {
+                       let jokeArray = [joke1,joke2,joke3,joke4,joke5]
+                       console.log(jokeArray)
+                  })
+             })
+          })
+    })
+})
+})
+

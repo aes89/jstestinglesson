@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transition: all 0.5s
+            position: absolute;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box" class=""></div>
+    
+    <button onClick="moveRight()">Move Right</button>
+    <button onClick="moveLeft()">Move Left</button>
+    <button onClick="moveUp()">Move Up</button>
+    <button onClick="moveDown()">Move Down</button>
+
+    <script>
+        let moveAmount = 50;
+        let currentPositionX = 0;
+        let currentPositionY = 0;
+
+        function moveLeft(){
+            currentPositionX = document.getElementById("box").getBoundingClientRect().left - moveAmount;
+            document.getElementById("box").style.transform = `translate(${currentPositionX}%, ${currentPositionY}%)`;
+            console.log("Left x:", currentPositionX)
+            console.log("Left y:", currentPositionY)
+
+        }
+
+        function moveRight(){
+            currentPositionX = document.getElementById("box").getBoundingClientRect().left + moveAmount;
+            document.getElementById("box").style.transform = `translate(${currentPositionX}%, ${currentPositionY}%)`;
+            console.log("Right x:", currentPositionX)
+            console.log("Right y:", currentPositionY)
+
+        }
+
+        function moveUp(){
+            currentPositionY = document.getElementById("box").getBoundingClientRect().top - moveAmount;
+            document.getElementById("box").style.transform = `translate(${currentPositionX}%, ${currentPositionY}%)`;
+            console.log("x up:", currentPositionX)
+            console.log("y up:", currentPositionY)
+
+        }
+
+        function moveDown(){
+            currentPositionY = document.getElementById("box").getBoundingClientRect().top + moveAmount;
+            document.getElementById("box").style.transform = `translate(${currentPositionX}%, ${currentPositionY}%)`;
+            console.log("down x", currentPositionX)
+            console.log("down y:", currentPositionY)
+
+        }
+
+    </script>
+</body>
+</html>

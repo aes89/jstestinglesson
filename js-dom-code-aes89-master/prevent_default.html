@@ -1,0 +1,82 @@
+<!-- without prevent default
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Without Prevent Default</title>
+</head>
+<style>
+  body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90vw;
+    height: 50vh;
+    
+  }
+  div {
+    font-size: 3em;
+    background-color: khaki;
+    border: 1px solid darkslategrey;
+  }
+</style>
+<body>
+    <!-- What are some of the default browser actions that you can think of ? -->
+    <!-- <div>
+        <a href='https://www.google.com/' onClick='goToGoogle()'>Click here to visit Google.com</a>
+    </div>
+      <script>
+        function goToGoogle() {
+          alert('Going to Google.com');
+        }
+      </script>
+</body>
+</html> -->
+
+
+<!-- with: -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prevent Default</title>
+    <style>
+      body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90vw;
+        height: 50vh;
+        
+      }
+      div {
+        font-size: 3em;
+        background-color: khaki;
+        border: 1px solid darkslategrey;
+      }
+</style>
+</head>
+<!-- RESOURCE : 
+https://developer.mozilla.org/en-US/docs/Web/API/Event/preventDefault#:~:text=The%20Event%20interface's%20preventDefault(),as%20it%20normally%20would%20be. 
+Default browser behaviour : 
+A click on a link 
+A click on a form submit button
+Press the mouse button on text and drag -->
+
+<body>
+    <div>
+        <a href='https://www.google.com/' onClick='goToGoogle(event)'>Click here to visit Google.com</a>
+    </div>
+      <script>
+        function goToGoogle(event) {
+          alert('Trying to go to Google.com')
+          event.preventDefault()
+          event.target.innerHTML = 'Sorry! Click event prevented'         
+        }
+      </script>
+</body>
+</html>

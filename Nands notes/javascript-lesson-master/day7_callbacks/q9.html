@@ -1,0 +1,36 @@
+<!-- what happens when a click event is registered?? -->
+<html>
+
+<head></head>
+
+<body>
+    <script>
+
+        function callback() {
+
+            console.log("CALLBACK : 3 seconds completed!");
+        }
+
+        function waitThreeSecond(callback) {
+
+            var ms = 3000 + new Date().getTime();
+
+            while (new Date() < ms) {
+
+            }
+            callback();
+        }
+
+        waitThreeSecond(callback);
+
+        function clickHandler() {
+
+            console.log("Click event registered");
+        }
+
+        document.addEventListener('click', clickHandler);
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Remove Event Listener</title>
+<style>
+
+/* on hover on blue div - generates random number. Click on "stop" button physically removes the event listener, but comes back on refresh. */
+    #myDIV {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightskyblue;
+    border: 1px solid;
+    padding: 50px;
+    width: 600px;
+    height: 300px;
+    color: white;
+    }
+    #demo{
+      border: 2px solid darkblue;
+      height: 100px;
+      width: 600px;
+    }
+</style>
+</head>
+<body>
+  <!--SYNTAX : 
+    element.removeEventListener(event, handler, [options])
+    To know more about the options, refer to the docs.
+    THINGS TO REMEMBER : 
+    1. To remove an event listener we need to exactly pass the same function as we did while adding the event listener.
+    2. Calling removeEventListener() with arguments that do not identify any currently registered EventListener on the EventTarget has no effect.  -->
+
+    <div id="myDIV"></p>
+      <button onclick="removeHandler()" id="button">STOP random number generation
+        <!-- onClick="removeHandler()" NOT best practise -don't do this -->
+      </button>
+    </div>
+    
+    <p id="demo"></p>
+    
+    <script>
+      
+   /* STEP 1 : 
+    Write a function "myFunction()" that generates a random number below 100 and replaces the content in the outer paragraph with the latest generated random number. HINT : Use innerHTML
+      */ 
+  
+      function myFunction(){
+        document.getElementById("demo").innerHTML = Math.floor(Math.random() * 100)
+      }
+    
+  
+// STEP 2 : 
+//     Add an eventlistener on the div (blue background) so that when we mouse move, we call a function to generate random number below 100   -->
+
+const myDIV = document.getElementById('myDIV');
+  myDIV.addEventListener('mousemove', myFunction)
+
+
+// STEP 3 : 
+//     Add a eventlistener for the button element which calls another function to remove event listener on the div element.
+//     */ --> 
+
+function removeHandler(){
+  myDIV.removeEventListener('mousemove', myFunction)
+}
+
+    // mousemove in step 2, so mousemove must be stated in step 3
+  </script>
+</body>
+</html>
+
+
+
+
+    

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bubbling</title>
+</head>
+<style>
+    body{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px
+    }
+    div{
+        display: flex;
+        flex-direction: column;
+        background-color: cornsilk;
+        border: 2px solid darkblue;
+        justify-content: center;
+        align-items: center;
+        width: 600px;
+        height: 300px;
+        padding: 20px
+    }
+
+    p, ul{
+        background-color: lightblue;
+        border: 2px solid darkblue;
+        width: 50%;
+        padding: 20px;
+    }
+
+</style>
+<body>
+    <div>
+        <p>PARAGRAPH - Child of DIV</p>
+        <ul> UL - Child of DIV
+            <li>LIST ITEM 1 of ul</li>
+            <li>LIST ITEM 2 of ul</li>
+        </ul>
+    </div>   
+   <script>
+        let div = document.querySelector("div")
+        let p = div.querySelector("p")
+        let ul = div.querySelector("ul")    
+
+        div.appendChild(document.createTextNode("PARENT DIV"))
+
+		/*
+		STEP 1:
+			Add an event listener for the paragraph - child element of DIV
+			In the event handler just have a simple alert that says 
+			Child P clicked
+		STEP 2: 
+			Add an event listener for the DIV - parent element
+			In the event handler just have a simple alert that says 
+			Parent DIV clicked
+		STEP 3: 
+			Add an event listener for the Unordered List - child element of DIV
+			In the event handler just have a simple alert that says 
+			Child UL clicked
+
+		*/
+
+        p.addEventListener('click', e => {
+        event.stopPropagation()
+        alert('Child P clicked');
+        })
+        div.addEventListener('click', e => {
+        alert('Parent DIV clicked');
+        })
+        ul.addEventListener('click', e => {
+        event.stopPropagation()
+        alert('Child UL clicked');
+        })
+
+        // so the bubbling happens whether you're listening or not? need to stopPropogation() to stop it, but can have side effects re: analytics/statistics
+            
+    </script> 
+</body>
+</html>

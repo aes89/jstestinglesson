@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.2.0/papaparse.js"></script>
+</head>
+
+<body>
+    <h1>Public toilet finder =)</h1>
+    <form onsubmit="findToilets(event)" id="postcodeForm">
+        <label for="postcode">Postcode</label>
+        <input type="text" name="postcode" id="postcodeInput">
+        <input type="submit" value="I NEED TO PEE">
+    </form>
+
+    <hr>
+
+    <div id="toiletResults">
+     
+    </div>
+
+    <script src="source.js"></script>
+</body>
+
+</html>
